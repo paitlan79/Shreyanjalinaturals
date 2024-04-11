@@ -1,8 +1,16 @@
 function GetPrint()
 {
     /*For Print*/
+    if(document.getElementById("discount").value  <= 0){
+            document.getElementById("discount").style.visibility= "hidden";
+            document.getElementById("disclable").style.visibility= "hidden";    
+    }
+
     document.getElementById("lapbleprintNote").innerText="This is Computer generated Invoice no signature Required";
-    window.print();
+    window.print();   
+    
+    document.getElementById("disclable").style.visibility= "visible";
+    document.getElementById("discount").style.visibility= "visible";
     document.getElementById("lapbleprintNote").innerText="";
 }
 
