@@ -129,7 +129,7 @@ function MaxInv()
                     counter=1;
                 }
                 const newLocal = "input[name='inv_no']";
-                $(newLocal).val(year + "-"+ counter.toString().padStart(3,"0"));
+                $(newLocal).val(year + "-"+ counter.toString().padStart(4,"0"));
             }
             else{            
                 let year = new Date().getFullYear();
