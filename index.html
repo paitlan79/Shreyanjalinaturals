@@ -117,19 +117,27 @@
                       <div class="input-group mb-3">
                         <span class="input-group-text" >Note</span>
                         <input type="text" class="form-control" placeholder="" name="note" >
-                      </div> 
-
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <button type="button" class="btn btn-primary" onclick="GetPrint()">Print</button>                
-
+                      </div>   
                     </div>
 
                     <div class="col-4">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" >Discount</span>
+                        <input type="number" class="form-control text-end" id="discount" name="discount">
+                    </div> 
+
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Total</span>
                             <input type="number" class="form-control text-end" id="FTotal" name="FTotal" readonly="">
                         </div>                         
                     </div>
+                    <div class="col-8">                      
+                      <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="GetPrint()">Print</button>   
+                      </div>   
+                    </div>
+
                     <div >
                       <label  id="lapbleprintNote" ><small><h6></h6></small></label>
                     </div>

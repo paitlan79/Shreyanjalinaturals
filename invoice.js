@@ -65,7 +65,7 @@ function GetTotal()
     var sum=0;
     var amts =  document.getElementsByName("amt");
 
-    for (let index = 0; index < amts.length; index++)
+    for (let index = 1; index < amts.length; index++)
     {
         var amt = amts[index].value;
         sum = +(sum) +  +(amt) ; 
@@ -115,9 +115,9 @@ function SetCurrentDate()
           $(".item_nm").append(Options);               //04
         });
                 
-        document.getElementsByName("qty")[0].value = 1 ; 
-        document.getElementsByName("rate")[0].value = 1 ; 
-        document.getElementsByName("amt")[0].value = 1 ; 
+        document.getElementsByName("qty")[0].value = 0 ; 
+        document.getElementsByName("rate")[0].value = 0 ; 
+        document.getElementsByName("amt")[0].value = 0 ; 
 }
 
 function FillNameDataList()
