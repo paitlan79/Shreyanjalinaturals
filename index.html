@@ -25,7 +25,7 @@
     
 
     <div class="container ">
-       <form onsubmit="return validateForm()" method="POST" action="https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec">
+       <form method="POST" action="https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec">
 
         <div class="card">
             <div class="card-header text-center">
@@ -34,47 +34,51 @@
               
             </div>
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-8">
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Customer</span>
                             <!--<input type="text" class="form-control" placeholder="Name" name="cust_nm"  >-->
-                            <select class="form-control cust_nm" name="cust_nm"  autocomplete="off">
-                              <option>Select Name</option>
+                            <select class="form-control cust_nm" name="cust_nm"  autocomplete="off" required >
+                              <option></option>
                             </select>
+                            <div class="invalid-feedback">Please Enter Customer Name</div>
                         </div>
             
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Address</span>
                             <input type="text" class="form-control" placeholder="" name="addr" >
                         </div>
-
                         <div class="input-group mb-3">
-                          <span class="input-group-text" >Payment</span>
-                          <!-- <input type="text" class="form-control" placeholder="Mode" name="pay_mode" >-->
-                          <select class="form-control pay_mode" name="pay_mode"  autocomplete="off">
-                            <option>Cash</option>
-                            <option>Online</option>
-                            <option>Credit / उधार</option>
-                          </select>
-                        </div>                
+                          <span class="input-group-text" >Mobile</span>
+                          <input type="number" class="form-control" name="mobileno">                          
+                       </div>
+
+                                      
                     </div>
 
-                    <div class="col-4">
-                      
+                    <div class="col-4">                      
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Inv. No</span>
-                            <input type="text" class="form-control" placeholder="Inv. No" name="inv_no" >
+                            <input type="text" class="form-control" placeholder="Inv. No" name="inv_no" required >
+                            <div class="invalid-feedback">Please Enter Invoice No</div>
                         </div>
 
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Inv. Date</span>
-                            <input type="date" class="form-control" placeholder="Inv. Date" name="inv_dt" >
+                            <input type="date" class="form-control" placeholder="Inv. Date" name="inv_dt" required >
+                            <div class="invalid-feedback">Please Enter Date</div>
                         </div>
-
-
-
+                     
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Payment</span>
+                            <!-- <input type="text" class="form-control" placeholder="Mode" name="pay_mode" >-->
+                            <select class="form-control pay_mode" name="pay_mode"  autocomplete="off">
+                              <option>Cash</option>
+                              <option>Online</option>
+                              <option>Credit / उधार</option>
+                            </select>
+                          </div> 
                     </div>
                 </div>
 
@@ -89,7 +93,6 @@
                         <th scope="col" class="text-end">Amount</th>
                         <th scope="col" class="NoPrint">                         
                             <button type="button" class="btn btn-sm btn-success" onclick="BtnAdd()">+</button>
-                          
                         </th>
 
                       </tr>
@@ -97,13 +100,13 @@
                     <tbody id="TBody">
                       <tr id="TRow" class="d-none">
                         <th scope="row">1</th>
-                        <td><select class="form-control item_nm" name="item_nm"  autocomplete="off">
-                          <option>Select Item</option>
+                        <td><select class="form-control item_nm" name="item_nm" required  value="A">
+                          <option></option>                          
                         </select></td>
 
-                        <td><input type="number" class="form-control text-end" name="qty" onchange="Calc(this);"></td>
-                        <td><input type="number" class="form-control text-end" name="rate"  onchange="Calc(this);"></td>
-                        <td><input type="number" class="form-control text-end" name="amt" value="0" readonly=""></td>
+                        <td><input type="number" class="form-control text-end" name="qty" required onchange="Calc(this);"></td>
+                        <td><input type="number" class="form-control text-end" name="rate" required onchange="Calc(this);"></td>
+                        <td><input type="number" class="form-control text-end" name="amt" required readonly=""></td>
                         <td class="NoPrint"><button type="button" class="btn btn-sm btn-danger" onclick="BtnDel(this)">X</button></td>
                       </tr>
                     </tbody>
@@ -111,33 +114,31 @@
 
 
                   <div class="row">
-                    <div class="col-8">
-                      
+                    <div class="col-8">                      
                       <div class="input-group mb-3">
                         <span class="input-group-text" >Note</span>
                         <input type="text" class="form-control" placeholder="" name="note" >
                       </div> 
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-primary" onclick="GetPrint()">Print</button>
-                        <div class="input-group mb-3">
-                          <span><h6>This is Computer generated Invoice no signature Required</h6></span>
-                        </div> 
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="button" class="btn btn-primary" onclick="GetPrint()">Print</button>                
 
                     </div>
+
                     <div class="col-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Total</span>
                             <input type="number" class="form-control text-end" id="FTotal" name="FTotal" readonly="">
-                        </div>                       
+                        </div>                         
+                    </div>
+                    <div >
+                      <label  id="lapbleprintNote" ><small><h6></h6></small></label>
                     </div>
                 </div>
              </div>
           </div>
         </form>  
     </div>
-
-
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

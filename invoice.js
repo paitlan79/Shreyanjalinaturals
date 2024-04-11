@@ -1,7 +1,9 @@
 function GetPrint()
 {
     /*For Print*/
+    document.getElementById("lapbleprintNote").innerText="This is Computer generated Invoice no signature Required";
     window.print();
+    document.getElementById("lapbleprintNote").innerText="";
 }
 
 function BtnAdd()
@@ -15,29 +17,43 @@ function BtnAdd()
 
 function BtnDel(v)
 {
-    /*Delete Button*/
-       $(v).parent().parent().remove(); 
-       GetTotal();
+    var amts =  document.getElementsByName("amt");
+    if(amts.length >2){
+        var result;  
+        var r = confirm("Do you want to Delete this Record!");  
+        if (r == true) {  
+            /*Delete Button*/
+            $(v).parent().parent().remove(); 
+            GetTotal();
 
-        $("#TBody").find("tr").each(
-        function(index)
-        {
-           $(this).find("th").first().html(index);
-        }
+            $("#TBody").find("tr").each(
+            function(index)
+            {
+            $(this).find("th").first().html(index);
+            }
 
-       );
+        ); 
+        }    
+    }
 }
 
 function Calc(v)
 {
     /*Detail Calculation Each Row*/
     var index = $(v).parent().parent().index();
-    
+
+    if(parseInt(v.value) <= 0){
+        document.getElementsByName(v.name)[index].value ="";
+        return;
+    }  
+
     var qty = document.getElementsByName("qty")[index].value;
     var rate = document.getElementsByName("rate")[index].value;
 
     var amt = qty * rate;
     document.getElementsByName("amt")[index].value = amt;
+    //To set value on hidden row 
+    document.getElementsByName("item_nm")[0].selectedIndex  = 1;
 
     GetTotal();
 }
@@ -82,7 +98,7 @@ function SetCurrentDate()
 		let CurrDate = y + '-' + m + '-' + d;
 
 		// $('input[name="inv_dt"]').val(CurrDate);  //Using jQuery
-		document.getElementsByName("inv_dt")[0].value = CurrDate ; 
+		document.getElementsByName("inv_dt")[0].value = CurrDate ;     
 
 	}
 
@@ -98,6 +114,10 @@ function SetCurrentDate()
           });
           $(".item_nm").append(Options);               //04
         });
+                
+        document.getElementsByName("qty")[0].value = 1 ; 
+        document.getElementsByName("rate")[0].value = 1 ; 
+        document.getElementsByName("amt")[0].value = 1 ; 
 }
 
 function FillNameDataList()
@@ -136,45 +156,10 @@ function MaxInv()
                 let year = new Date().getFullYear();
                 let counter= 1;
                 const newLocal = "input[name='inv_no']";
-                $(newLocal).val(year + "-"+ counter.toString().padStart(3,"0"));
+                $(newLocal).val(year + "-"+ counter.toString().padStart(4,"0"));
             }           
 
         });
     }
-
-
-    function validateForm() {
-        let name = document.getElementsByName("cust_nm")[0].value 
-
-        if (name == "Select Name") {
-          alert("Name must be filled out");
-          return false;
-        }
-        var amts =  document.getElementsByName("amt");
-        if (amts.length == 1)
-        {
-            alert("Please add at least one Item in Invoice");
-            return false;
-        }
-
-        for (let index = 1; index < amts.length; index++)
-        {
-            var amt = amts[index].value;
-            //console.log(amt);
-            if (amt <= 0) {
-                alert("Item Amount should not zero");
-                return false;
-              }
-        }
-
-        var items =  document.getElementsByName("item_nm");
-        for (let index = 1; index < items.length; index++)
-        {
-            var item = items[index].value;
-              if (item == "Select Item") {
-                alert("Please Select Item");
-                return false;
-              }
-        }
-
-      }
+    
+  
