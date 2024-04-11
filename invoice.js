@@ -116,6 +116,7 @@ function FillNameDataList()
 
 function MaxInv()
     {
+        
         $.getJSON("https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec?page=max", 
         function (data) { 
             let numbers = data.match(/\d+/g);
