@@ -70,8 +70,10 @@ function GetTotal()
         var amt = amts[index].value;
         sum = +(sum) +  +(amt) ; 
     }
+    var discount =  document.getElementsByName("discount");
+    sum=sum-discount;
 
-    document.getElementById("FTotal").value = sum;
+    document.getElementById("FTotal").value = sum ;
  
 }
 
