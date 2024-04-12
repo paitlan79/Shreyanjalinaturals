@@ -25,7 +25,7 @@ function GetPrint()
 
     window.print();
     if (isAndroid) {
-        alert("In Android")       
+        //alert("In Android")       
          setTimeout(function () { 
             window.close();
             document.getElementById("disclable").style.visibility= "visible";
@@ -35,7 +35,7 @@ function GetPrint()
      }, 100);
     } 
     else {
-        alert("windows")   
+        //alert("windows")   
         document.getElementById("disclable").style.visibility= "visible";
         document.getElementById("discount").style.visibility= "visible";
         document.getElementById("lapbleprintNote").innerText="";
