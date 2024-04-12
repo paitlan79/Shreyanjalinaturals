@@ -54,7 +54,10 @@ function Calc(v)
     var index = $(v).parent().parent().index();
 
     if(parseInt(v.value) <= 0){
-        document.getElementsByName(v.name)[index].value ="";
+        if(v.name != "discount")
+            document.getElementsByName(v.name)[index].value ="";
+        else
+            document.getElementById("discount").value  ="";
         return;
     }  
 
