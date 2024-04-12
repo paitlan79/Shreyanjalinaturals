@@ -42,7 +42,7 @@ function GetPrint()
         document.getElementById("lapbleprintNote").innerText="";
 
     }
-    alert("end print function")   
+    //alert("end print function")   
 
 }
 /* window.addEventListener("afterprint", (event) => {
