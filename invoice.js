@@ -32,7 +32,7 @@ function GetPrint()
             document.getElementById("disclable").style.visibility= "visible";
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
-            alert("setTimeout")   
+            //alert("setTimeout")   
      }, 1);
     } 
     else {
