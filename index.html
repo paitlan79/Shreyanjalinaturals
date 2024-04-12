@@ -19,7 +19,15 @@
     <!-- For Invoice  -->
     <script src="invoice.js"></script>
     <script src="https://www.google.com/cloudprint/client/cpgadget.js"></script>
-
+    <style>
+      .hide-on-screen {display:none;}
+      .yesPrint, .noPrint {display:block;}
+      
+      @media print {
+         .hide-on-screen {display:block;}
+         .noPrint {display:none;}
+      }
+      </style>
 
 </head>
   <body>
@@ -115,7 +123,7 @@
                       <div class="col-6">                      
                         <div class="input-group mb-3">
                           <span class="input-group-text" >Remark</span>
-                          <input type="text" class="form-control" placeholder="" name="note" >
+                          <input type="text" class="form-control" placeholder="" id="note"  name="note" >
                         </div>   
                       </div>
 
@@ -133,7 +141,7 @@
                       <div class="col-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text" >Total ₹</span>
-                            <input type="number" class="form-control text-end" id="FTotal" name="FTotal" readonly="">
+                            <input style="font-weight: bold" type="number" class="form-control text-end" id="FTotal" name="FTotal" readonly="">
                         </div>    
                       </div>                      
                     </div>
@@ -146,7 +154,7 @@
                     </div>
                     <div class="row">
                       <div >
-                        <label  id="lapbleprintNote" ><small><h6></h6></small></label>
+                        <label class="hide-on-screen" id="lapbleprintNote" ><small><h6>This is Computer generated Invoice no signature Required</h6></small></label>
                       </div>
                     </div>
                 </div>
