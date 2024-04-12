@@ -15,6 +15,7 @@ function GetPrint()
     var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
    if (isAndroid) {
+        alert("in Android")
         var gadget = new cloudprint.Gadget();
         gadget.setPrintButton(cloudprint.Gadget.createDefaultPrintButton("gcpPrint"));
         gadget.setPrintDocument("text/html", "Print", document.documentElement.innerHTML);
