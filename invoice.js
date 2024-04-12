@@ -33,21 +33,15 @@ function GetPrint()
             document.getElementById("lapbleprintNote").innerText="";
             //alert("setTimeout")   
      }, 100);
-    } 
-    else {
-        //alert("windows")   
-        document.getElementById("disclable").style.visibility= "visible";
+    }  
+
+}
+window.addEventListener("afterprint", (event) => {
+     document.getElementById("disclable").style.visibility= "visible";
         document.getElementById("discount").style.visibility= "visible";
         document.getElementById("lapbleprintNote").innerText="";
 
-    }
-    //alert("end print function")   
-
-}
-/* window.addEventListener("afterprint", (event) => {
-    alert("After")
-
-  }); */
+  }); 
 
 
 function BtnAdd()
