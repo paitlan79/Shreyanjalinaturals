@@ -16,9 +16,10 @@ function GetPrint()
 
    if (isAndroid) {
         alert("in Android")
-        var gadget = new cloudprint.Gadget();
-        gadget.setPrintButton(cloudprint.Gadget.createDefaultPrintButton("gcpPrint"));
-        gadget.setPrintDocument("text/html", "Print", document.documentElement.innerHTML);
+        setTimeout(function(){
+            window.print();
+            
+          },1000);
     } else {
       window.print();
     }  
