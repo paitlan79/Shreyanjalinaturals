@@ -11,7 +11,7 @@ function GetPrint()
     
     document.getElementById("disclable").style.visibility= "visible";
     document.getElementById("discount").style.visibility= "visible";
-    document.getElementById("lapbleprintNote").innerText="";
+    //document.getElementById("lapbleprintNote").innerText="";
 }
 
 function BtnAdd()
