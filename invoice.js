@@ -11,21 +11,38 @@ function GetPrint()
 
     window.print();   */
 
+
+    if(document.getElementById("discount").value  <= 0){
+        document.getElementById("discount").style.visibility= "hidden";
+        document.getElementById("disclable").style.visibility= "hidden";  
+    }
+
+    document.getElementById("lapbleprintNote").innerText="This is Computer generated Invoice no signature Required";
+
+
     var ua = navigator.userAgent.toLowerCase();
     var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
-   if (isAndroid) {
-        alert("in Android")
-        setTimeout(function(){
-            window.print();
-            
-          },1000);
-    } else {
-      window.print();
-    }  
-    document.getElementById("disclable").style.visibility= "visible";
-    document.getElementById("discount").style.visibility= "visible";
-    document.getElementById("lapbleprintNote").innerText="";
+    window.print();
+    if (isAndroid) {
+        alert("In Android")       
+         setTimeout(function () { 
+            window.close();
+            document.getElementById("disclable").style.visibility= "visible";
+            document.getElementById("discount").style.visibility= "visible";
+            document.getElementById("lapbleprintNote").innerText="";
+            alert("setTimeout")   
+     }, 100);
+    } 
+    else {
+        alert("windows")   
+        document.getElementById("disclable").style.visibility= "visible";
+        document.getElementById("discount").style.visibility= "visible";
+        document.getElementById("lapbleprintNote").innerText="";
+
+    }
+    alert("end print function")   
+
 }
 /* window.addEventListener("afterprint", (event) => {
     alert("After")
