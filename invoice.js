@@ -26,14 +26,13 @@ function GetPrint()
     window.print();
     if (isAndroid) {
         //alert("In Android")       
-         setTimeout(function () { 
-           
+         setTimeout(function () {            
             window.close();
             document.getElementById("disclable").style.visibility= "visible";
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
             //alert("setTimeout")   
-     }, 1);
+     }, 100);
     } 
     else {
         //alert("windows")   
