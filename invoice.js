@@ -23,13 +23,14 @@ function GetPrint()
     } else {
       window.print();
     }  
-}
-window.addEventListener("afterprint", (event) => {
-    alert("After")
     document.getElementById("disclable").style.visibility= "visible";
     document.getElementById("discount").style.visibility= "visible";
     document.getElementById("lapbleprintNote").innerText="";
-  });
+}
+/* window.addEventListener("afterprint", (event) => {
+    alert("After")
+
+  }); */
 
 
 function BtnAdd()
