@@ -6,14 +6,12 @@ function GetPrint()
         document.getElementById("disclable").style.visibility= "hidden";  
     }
 
-    document.getElementById("lapbleprintNote").innerText="This is Computer generated Invoice no signature Required";
     window.print();
 }
+
 window.addEventListener("afterprint", (event) => {
      document.getElementById("disclable").style.visibility= "visible";
-        document.getElementById("discount").style.visibility= "visible";
-        document.getElementById("lapbleprintNote").innerText="";
-
+     document.getElementById("discount").style.visibility= "visible";      
   }); 
 
 
