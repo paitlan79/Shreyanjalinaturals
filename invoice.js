@@ -1,6 +1,7 @@
 function GetPrint()
 {
     /*For Print*/
+    /*
     if(document.getElementById("discount").value  <= 0){
             document.getElementById("discount").style.visibility= "hidden";
             document.getElementById("disclable").style.visibility= "hidden";    
@@ -8,12 +9,25 @@ function GetPrint()
 
     document.getElementById("lapbleprintNote").innerText="This is Computer generated Invoice no signature Required";
 
-    window.print();   
+    window.print();   */
+
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+
+   if (isAndroid) {
+      // https://developers.google.com/cloud-print/docs/gadget
+      var gadget = new cloudprint.Gadget();
+      gadget.setPrintDocument("url", $('title').html(), window.location.href, "utf-8");
+      gadget.openPrintDialog();
+    } else {
+      window.print();
+    }
+
     
    
 }
 window.addEventListener("afterprint", (event) => {
-    alert("After Print");
+    alert("After")
     document.getElementById("disclable").style.visibility= "visible";
     document.getElementById("discount").style.visibility= "visible";
     document.getElementById("lapbleprintNote").innerText="";
