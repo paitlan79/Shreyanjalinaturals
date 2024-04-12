@@ -27,7 +27,7 @@ function GetPrint()
     if (isAndroid) {
         //alert("In Android")       
          setTimeout(function () {            
-            window.close();
+            //window.close();
             document.getElementById("disclable").style.visibility= "visible";
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
