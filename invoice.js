@@ -16,19 +16,21 @@ function GetPrint()
 
    if (isAndroid) {
         alert("in Android")
-        var gadget = new cloudprint.Gadget();
-        gadget.setPrintButton(cloudprint.Gadget.createDefaultPrintButton("gcpPrint"));
-        gadget.setPrintDocument("text/html", "Print", document.documentElement.innerHTML);
+        setTimeout(function(){
+            window.print();
+            
+          },1000);
     } else {
       window.print();
     }  
-}
-window.addEventListener("afterprint", (event) => {
-    alert("After")
     document.getElementById("disclable").style.visibility= "visible";
     document.getElementById("discount").style.visibility= "visible";
     document.getElementById("lapbleprintNote").innerText="";
-  });
+}
+/* window.addEventListener("afterprint", (event) => {
+    alert("After")
+
+  }); */
 
 
 function BtnAdd()
