@@ -23,11 +23,12 @@ function GetPrint()
     var ua = navigator.userAgent.toLowerCase();
     var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 
-    window.print();
+   
     if (isAndroid) {
         //alert("In Android")       
          setTimeout(function () { 
-            window.close();
+            window.print();
+            //window.close();
             document.getElementById("disclable").style.visibility= "visible";
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
