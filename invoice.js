@@ -26,29 +26,22 @@ function GetPrint()
     window.print();
     if (isAndroid) {
         //alert("In Android")       
-         setTimeout(function () { 
-           
-            window.close();
+         setTimeout(function () {            
+            //window.close();
             document.getElementById("disclable").style.visibility= "visible";
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
-            alert("setTimeout")   
-     }, 1);
-    } 
-    else {
-        //alert("windows")   
-        document.getElementById("disclable").style.visibility= "visible";
+            //alert("setTimeout")   
+     }, 100);
+    }  
+
+}
+window.addEventListener("afterprint", (event) => {
+     document.getElementById("disclable").style.visibility= "visible";
         document.getElementById("discount").style.visibility= "visible";
         document.getElementById("lapbleprintNote").innerText="";
 
-    }
-    //alert("end print function")   
-
-}
-/* window.addEventListener("afterprint", (event) => {
-    alert("After")
-
-  }); */
+  }); 
 
 
 function BtnAdd()
