@@ -6,12 +6,21 @@ function GetPrint()
         document.getElementById("disclable").style.visibility= "hidden";  
     }
 
+    if(document.getElementById("note").value == ""){
+        document.getElementById("note").style.visibility.visibility= "hidden";
+        document.getElementById("remark").style.visibility= "hidden";  
+    }
+
     window.print();
 }
 
 window.addEventListener("afterprint", (event) => {
      document.getElementById("disclable").style.visibility= "visible";
-     document.getElementById("discount").style.visibility= "visible";      
+     document.getElementById("discount").style.visibility= "visible"; 
+
+     document.getElementById("note").style.visibility= "visible";
+     document.getElementById("remark").style.visibility= "visible";      
+
   }); 
 
 
