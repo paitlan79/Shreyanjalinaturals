@@ -33,7 +33,7 @@ function GetPrint()
             document.getElementById("discount").style.visibility= "visible";
             document.getElementById("lapbleprintNote").innerText="";
             alert("setTimeout")   
-     }, 100);
+     }, 1);
     } 
     else {
         //alert("windows")   
