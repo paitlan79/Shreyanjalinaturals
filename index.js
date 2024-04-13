@@ -9,13 +9,13 @@ function Login() {
      },
     function (data){                              //01
             if (data.result == "true") {
-                window.open('invoice.html');
-                /* $.ajax("\invoice.html", {
+                //window.open('invoice.html');
+                $.ajax("invoice.html", {
                     success: function(response) {
                       $('#DivLogin').hide();
                       $('#DivMain').html(response);
                     }
-                  }); */
+                  }); 
               }
               else
               {
