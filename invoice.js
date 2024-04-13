@@ -120,8 +120,8 @@ function SetCurrentDate()
 
 		let CurrDate = y + '-' + m + '-' + d;
 
-		// $('input[name="inv_dt"]').val(CurrDate);  //Using jQuery
-		document.getElementsByName("inv_dt")[0].value = CurrDate ;     
+		$('input[name="inv_dt"]').val(CurrDate);  //Using jQuery
+		//document.getElementsByName("inv_dt")[0].value = CurrDate ;     
 
 	}
 
@@ -138,9 +138,12 @@ function SetCurrentDate()
           $(".item_nm").append(Options);               //04
         });
                 
-        document.getElementsByName("qty")[0].value = 0 ; 
-        document.getElementsByName("rate")[0].value = 0 ; 
-        document.getElementsByName("amt")[0].value = 0 ; 
+       // $('input[name="qty"]')[0].val(CurrDate);  //Using jQuery
+      //  $('input[name="rate"]')[0].val(CurrDate);  //Using jQuery
+      //  $('input[name="amt"]')[0].val(CurrDate);  //Using jQuery
+       document.getElementsByName("qty")[0].value = 0 ; 
+       document.getElementsByName("rate")[0].value = 0 ; 
+       document.getElementsByName("amt")[0].value = 0 ; 
 }
 
 function FillNameDataList()
