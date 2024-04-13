@@ -43,17 +43,3 @@ function LogOut() {
     $('#DivLogin').show();
     $('#DivMain').html("");
 } 
-
-function FillNameDataList()
-{
-        $.getJSON("https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec?page=dropdownName", 
-        function (data) {                              //01
-          var Options="";                              
-          $.each(data, function(key, value)            //02
-          {
-            Options = Options + '<option>' + value + '</option>';   //03
-            //console.log(value);
-          });
-          $(".cust_nm").append(Options);               //04
-        });
-}
