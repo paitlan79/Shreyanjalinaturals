@@ -9,13 +9,13 @@ function Login() {
      },
     function (data){                              //01
             if (data.result == "true") {
-                window.open('invoice.html');
-                /* $.ajax("\invoice.html", {
+                //window.open('invoice.html');
+                $.ajax("invoice.html", {
                     success: function(response) {
                       $('#DivLogin').hide();
                       $('#DivMain').html(response);
                     }
-                  }); */
+                  }); 
               }
               else
               {
@@ -43,22 +43,3 @@ function LogOut() {
     $('#DivLogin').show();
     $('#DivMain').html("");
 } 
-
-$(document).ready(function(){
-    //FillNameDataList();
-    Login();
-});
-
-function FillNameDataList()
-{
-        $.getJSON("https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec?page=dropdownName", 
-        function (data) {                              //01
-          var Options="";                              
-          $.each(data, function(key, value)            //02
-          {
-            Options = Options + '<option>' + value + '</option>';   //03
-            //console.log(value);
-          });
-          $(".cust_nm").append(Options);               //04
-        });
-}
