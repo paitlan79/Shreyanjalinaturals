@@ -1,168 +1,55 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shreyanjali Naturals Invoice</title>
-    <!-- For Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+      <!-- For Bootstrap-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
-    <!-- CSS For Print Format -->
-    <link rel="stylesheet" media="print" href="invoiceprint.css">
     
-    <!-- CSS For Invoice -->
-    <link rel="stylesheet"  href="invoice.css">
 
-    <!-- jQuery CDN -->
-    <!--<script src="https://code.jquery.com/jquery-3.6.2.slim.js" integrity="sha256-OflJKW8Z8amEUuCaflBZJ4GOg4+JnNh9JdVfoV+6biw=" crossorigin="anonymous"></script>-->
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-    <!-- For Invoice  -->
-    <script src="invoice.js"></script>
-    <script src="https://www.google.com/cloudprint/client/cpgadget.js"></script>
-    <style>
-      .hide-on-screen {display:none;}
-      .yesPrint, .noPrint {display:block;}
+      <!-- jQuery CDN -->
+      <!--<script src="https://code.jquery.com/jquery-3.6.2.slim.js" integrity="sha256-OflJKW8Z8amEUuCaflBZJ4GOg4+JnNh9JdVfoV+6biw=" crossorigin="anonymous"></script>-->
+      <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
       
-      @media print {
-         .hide-on-screen {display:block;}
-         .noPrint {display:none;}
-      }
-      </style>
 
+    <!-- CSS For Invoice -->
+    <link rel="stylesheet"  href="index.css">
+
+    <!-- For Index  -->
+    <script src="index.js"></script>
+
+  <style>  </style>
+  <script>  </script>
 </head>
-  <body>
-    
+<body>
 
-    <div class="container ">
-       <form method="POST" action="https://script.google.com/macros/s/AKfycbz6EJStK1BT17SLsU4Ra4Ky3NqUI7hJ9PxCSV0KfhFZNkSGEn482aW_Dt5XXH-puhag1w/exec">
+  <div id="DivLogin" class="card shadow rounded-4 rounded ">
+    <h5 class="card-header bg-secondary- text-white p-3 mycolor">Welcome To Shreyanjali Naturals</h5>
 
-        <div class="card">
-            <div class="card-header text-center">
-              <h2><B>Shreyanjali Naturals<B></h2>
-              <h4>INVOICE</h4>
-              
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Customer</span>
-                            <!--<input type="text" class="form-control" placeholder="Name" name="cust_nm"  >-->
-                            <select class="form-control cust_nm" name="cust_nm"  autocomplete="off" required >
-                              <option></option>
-                            </select>                            
-                        </div>
-            
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Address</span>
-                            <input type="text" class="form-control" placeholder="" name="addr" >
-                        </div>
-                        <div class="input-group mb-3">
-                          <span class="input-group-text" >Mobile</span>
-                          <input type="number" class="form-control" name="mobileno">                          
-                       </div>                                      
-                    </div>
+    <div class="card-body p-4">
+      <center>
+        <i class="bi bi-person-circle fs-1 color"></i>
+      </center>
+      <br>
 
-                    <div class="col-6">                      
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Inv. No</span>
-                            <input type="text" class="form-control" placeholder="Inv. No" name="inv_no" required readonly="">
-                            <div class="invalid-feedback">Please Enter Invoice No</div>
-                        </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >User</span>
+        <input type="text" class="form-control" id="uid" placeholder="User ID" onchange="ClearText()">
+      </div>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Inv. Date</span>
-                            <input type="date" class="form-control" placeholder="Inv. Date" name="inv_dt">
-                            <div class="invalid-feedback">Please Enter Date</div>
-                        </div>
-                     
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Payment</span>
-                            <!-- <input type="text" class="form-control" placeholder="Mode" name="pay_mode" >-->
-                            <select class="form-control pay_mode" name="pay_mode"  autocomplete="off">
-                              <option>Cash</option>
-                              <option>Online</option>
-                              <option>Credit / उधार</option>
-                            </select>
-                          </div> 
-                    </div>
-                </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Password</span>
+        <input type="password" class="form-control" id="pass" placeholder="password" onchange="ClearText()" >
+      </div>
+      <br>
 
+      <div id="RetMsg" class="alert alert-danger " style="display:none" role="alert"></div>
+      <button type="button" class="btn btn-primary- mycolor float-end px-5 text-white" onclick="Login()">Login</button>
 
-                <table class="table table-bordered">
-                    <thead class="table-success">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th class="col-5" scope="col">Item</th>
-                        <th class="col-2" scope="col" class="text-end">Qty</th>
-                        <th class="col-2" scope="col" class="text-end">Rate</th>
-                        <th class="col-3" scope="col" class="text-end">Amt .</th>
-                        <th  scope="col" class="NoPrint">                         
-                            <button type="button" class="btn btn-sm btn-success" onclick="BtnAdd()">+</button>
-                        </th>
-
-                      </tr>
-                    </thead>
-                    <tbody id="TBody">
-                      <tr id="TRow" class="d-none">
-                        <th scope="row">1</th>
-                        <td><select class="form-control item_nm" name="item_nm" required  value="A">
-                          <option></option>                          
-                        </select></td>
-
-                        <td><input type="number" class="form-control text-end" name="qty" required onchange="Calc(this);"></td>
-                        <td><input type="number" class="form-control text-end" name="rate" required onchange="Calc(this);"></td>
-                        <td><input type="number" class="form-control text-end" name="amt" required readonly=""></td>
-                        <td class="NoPrint"><button type="button" class="btn btn-sm btn-danger" onclick="BtnDel(this)">X</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-                  <div class="row">
-                      <div class="col-6">                      
-                        <div class="input-group mb-3">
-                          <span  class="input-group-text" id="remark" >Remark</span>
-                          <input type="text" class="form-control" placeholder="" id="note"  name="note" >
-                        </div>   
-                      </div>
-
-                      <div class="col-6">
-                        <div class="input-group mb-3">
-                          <span class="input-group-text"   id="disclable" name ="disclable" >Discount₹ </span>
-                          <input type="number" class="form-control text-end" id="discount" name="discount" onchange="Calc(this);">
-                        </div> 
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-6">
-                      </div>
-                      <div class="col-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >Total ₹</span>
-                            <input style="font-weight: bold" type="number" class="form-control text-end" id="FTotal" name="FTotal" readonly="">
-                        </div>    
-                      </div>                      
-                    </div>
-                 
-                    <div class="row">
-                      <div >
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-primary" onclick="GetPrint()">Print</button>   
-                      </div>   
-                    </div>
-                    <div class="row">
-                      <div >
-                        <label class="hide-on-screen" id="lapbleprintNote" ><small><h6>This is Computer generated Invoice no signature Required</h6></small></label>
-                      </div>
-                    </div>
-                </div>
-          </div>
-        </form>  
     </div>
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+  </div>
+  <div id="DivMain">  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
 </html>
