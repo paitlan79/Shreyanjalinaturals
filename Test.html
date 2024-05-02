@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Textbox with Dropdown Support</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="autocomplete">
+        <input type="text" id="textBox" placeholder="Type here...">
+        <div class="dropdown-content" id="dropdownContent"></div>
+    </div>
+    <script>
+        const textBox = document.getElementById("textBox");
+const dropdownContent = document.getElementById("dropdownContent");
+
+// Sample data (you can replace it with your own)
+const suggestions = ["Apple", "Banana", "Cherry", "Date", "Grape", "Lemon", "Orange", "Peach"];
+
+// Event listener for text input
+textBox.addEventListener("input", function() {
+    const inputText = this.value.toLowerCase();
+    let matches = suggestions.filter(suggestion => suggestion.toLowerCase().startsWith(inputText));
+    
+    // Clear existing dropdown content
+    dropdownContent.innerHTML = '';
+
+    // Display matching suggestions
+    matches.forEach(match => {
+        const suggestionElem = document.createElement("a");
+        suggestionElem.textContent = match;
+        suggestionElem.href = "#";
+        suggestionElem.addEventListener("click", function() {
+            textBox.value = match;
+            closeDropdown();
+        });
+        dropdownContent.appendChild(suggestionElem);
+    });
+
+    // Show/hide dropdown based on matches
+    if (matches.length > 0) {
+        openDropdown();
+    } else {
+        closeDropdown();
+    }
+});
+
+// Function to open dropdown
+function openDropdown() {
+    dropdownContent.style.display = "block";
+}
+
+// Function to close dropdown
+function closeDropdown() {
+    dropdownContent.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
